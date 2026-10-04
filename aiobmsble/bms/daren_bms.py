@@ -37,6 +37,7 @@ class BMS(JBDBMS):
         BMSDp("design_capacity", 45, 2, False, lambda x: x / 10),
         BMSDp("current", 49, 2, True, lambda x: x / 10),
     )
+    _FIELDS_100MA: tuple[BMSDp, ...] = ()  # extended frame carries its own units
 
     accept_secret: bool = False
 
