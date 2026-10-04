@@ -252,9 +252,6 @@ class BMS(BaseBMS):
         """Update battery status information."""
         result: BMSSample = {}
         await self._await_cmd_resp(0x03)
-        self._log.warning(
-            "0x03 basic info frame (%i bytes): %s", len(self._msg), self._msg.hex()
-        )
         result = BMS._decode_data(self._FIELDS, self._msg)
         result["temp_values"] = BMS._temp_values(
             self._msg,
